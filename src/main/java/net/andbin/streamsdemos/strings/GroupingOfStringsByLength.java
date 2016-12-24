@@ -43,8 +43,8 @@ public class GroupingOfStringsByLength {
          * We also want the map keys (the lengths) sorted in ascending order.
          *
          * e.g.
-         *     Length 4 --> [Iowa, Ohio, Utah]
-         *     Length 5 --> [Idaho, Maine, Texas]
+         *     Length  4 --> [Iowa, Ohio, Utah]
+         *     Length  5 --> [Idaho, Maine, Texas]
          *         ...etc...
          *     Length 14 --> [North Carolina, South Carolina]
          */
@@ -54,7 +54,7 @@ public class GroupingOfStringsByLength {
         System.out.printf("namesList = %s%n%n", namesList);
 
         lengthToNamesMap.entrySet().forEach(entry -> {
-            System.out.printf("Length %d --> %s%n", entry.getKey(), entry.getValue());
+            System.out.printf("Length %2d --> %s%n", entry.getKey(), entry.getValue());
         });
     }
 

@@ -39,6 +39,8 @@ public class PartitionOfEvenOddIntValues {
 
         Map<Boolean,List<Integer>> parityToValuesMap = partitionEvenOddUsingLambdaExpr(intValues);
 
+        System.out.printf("intValues = %s%n%n", Arrays.toString(intValues));
+
         System.out.printf("Odd  --> %s%n", parityToValuesMap.get(false));
         System.out.printf("Even --> %s%n", parityToValuesMap.get(true));
     }
