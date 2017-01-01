@@ -40,7 +40,7 @@ public class GroupingOfStringsByLengthTest extends AbstractTestBase {
     }
 
     private interface SUT {
-        Map<Integer,List<String>> groupByLength(List<String> namesList);
+        Map<Integer,List<String>> groupByLength(List<String> stringsList);
     }
 
 
@@ -53,23 +53,23 @@ public class GroupingOfStringsByLengthTest extends AbstractTestBase {
 
     @Test
     public void givenEmptyListShouldReturnEmptyMap() {
-        Map<Integer,List<String>> lengthToNamesMap = sut.groupByLength(Collections.emptyList());
-        assertThat(lengthToNamesMap).isEmpty();
+        Map<Integer,List<String>> lengthToStringsMap = sut.groupByLength(Collections.emptyList());
+        assertThat(lengthToStringsMap).isEmpty();
     }
 
     @Test
     public void givenOneItemListShouldReturnOneEntryMap() {
-        Map<Integer,List<String>> lengthToNamesMap = sut.groupByLength(Arrays.asList("one"));
-        assertThat(lengthToNamesMap).containsExactly(immutableEntry(3, Arrays.asList("one")));
+        Map<Integer,List<String>> lengthToStringsMap = sut.groupByLength(Arrays.asList("one"));
+        assertThat(lengthToStringsMap).containsExactly(immutableEntry(3, Arrays.asList("one")));
     }
 
     @Test
     public void givenList1ShouldReturnThreeEntriesMap() {
-        Map<Integer,List<String>> lengthToNamesMap = sut.groupByLength(LIST1);
-        assertThat(lengthToNamesMap).isNotEmpty();
-        assertThat(lengthToNamesMap.keySet()).containsExactly(3, 4, 5);
-        assertThat(lengthToNamesMap.get(3)).containsOnly("one", "two", "six");
-        assertThat(lengthToNamesMap.get(4)).containsOnly("four", "five");
-        assertThat(lengthToNamesMap.get(5)).containsOnly("three");
+        Map<Integer,List<String>> lengthToStringsMap = sut.groupByLength(LIST1);
+        assertThat(lengthToStringsMap).isNotEmpty();
+        assertThat(lengthToStringsMap.keySet()).containsExactly(3, 4, 5);
+        assertThat(lengthToStringsMap.get(3)).containsOnly("one", "two", "six");
+        assertThat(lengthToStringsMap.get(4)).containsOnly("four", "five");
+        assertThat(lengthToStringsMap.get(5)).containsOnly("three");
     }
 }

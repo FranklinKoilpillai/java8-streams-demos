@@ -37,15 +37,16 @@ public class GroupingOfStringsByInitial {
         );
 
         /*
-         * We want to group the names by initial and obtain a map where:
-         *   - keys are the initials (e.g. "A", "B", "C", etc...)
-         *   - values are lists containing all the names with that initial
+         * We want to group the names by initial letter, obtaining a map where:
+         *   - the key is the initial letter (e.g. "A", "B", "C", etc...)
+         *   - the value is a list containing all the names having that initial
          * We also want the map keys (initials) sorted in ascending order.
          *
          * e.g.
          *     A --> [Alabama, Alaska, Arizona, Arkansas]
          *     C --> [California, Colorado, Connecticut]
          *         ...etc...
+         *     V --> [Vermont, Virginia]
          *     W --> [Washington, West Virginia, Wisconsin, Wyoming]
          */
 
@@ -59,20 +60,20 @@ public class GroupingOfStringsByInitial {
     }
 
 
-    public static Map<String,List<String>> groupByInitialUsingLambdaExpr(List<String> namesList) {
-        return namesList.stream()
+    public static Map<String,List<String>> groupByInitialUsingLambdaExpr(List<String> stringsList) {
+        return stringsList.stream()
                 .collect(groupingBy(
-                        str -> str.substring(0, 1),     // classifier: gets the initial of name
-                        () -> new TreeMap<>(),          // map factory: creates a TreeMap
+                        str -> str.substring(0, 1),     // classifier: gets the initial of the string
+                        () -> new TreeMap<>(),          // map factory: creates a TreeMap<String,List<String>>
                         toList()                        // downstream: collects strings into a List
                 ));
     }
 
-    public static Map<String,List<String>> groupByInitialUsingMethodRef(List<String> namesList) {
-        return namesList.stream()
+    public static Map<String,List<String>> groupByInitialUsingMethodRef(List<String> stringsList) {
+        return stringsList.stream()
                 .collect(groupingBy(
-                        str -> str.substring(0, 1),     // classifier: gets the initial of name
-                        TreeMap::new,                   // map factory: creates a TreeMap
+                        str -> str.substring(0, 1),     // classifier: gets the initial of the string
+                        TreeMap::new,                   // map factory: creates a TreeMap<String,List<String>>
                         toList()                        // downstream: collects strings into a List
                 ));
     }

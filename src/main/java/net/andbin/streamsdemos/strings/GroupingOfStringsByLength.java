@@ -37,15 +37,16 @@ public class GroupingOfStringsByLength {
         );
 
         /*
-         * We want to group the names by length and obtain a map where:
-         *   - keys are the lengths (e.g. 4, 5, 6, etc...)
-         *   - values are lists containing all the names having that length
-         * We also want the map keys (the lengths) sorted in ascending order.
+         * We want to group the names by length, obtaining a map where:
+         *   - the key is the length (e.g. 4, 5, 6, etc...)
+         *   - the value is a list containing all the names having that length
+         * We also want the map keys (lengths) sorted in ascending order.
          *
          * e.g.
          *     Length  4 --> [Iowa, Ohio, Utah]
          *     Length  5 --> [Idaho, Maine, Texas]
          *         ...etc...
+         *     Length 13 --> [Massachusetts, New Hampshire, West Virginia]
          *     Length 14 --> [North Carolina, South Carolina]
          */
 
@@ -59,20 +60,20 @@ public class GroupingOfStringsByLength {
     }
 
 
-    public static Map<Integer,List<String>> groupByLengthUsingLambdaExpr(List<String> namesList) {
-        return namesList.stream()
+    public static Map<Integer,List<String>> groupByLengthUsingLambdaExpr(List<String> stringsList) {
+        return stringsList.stream()
                 .collect(groupingBy(
-                        str -> str.length(),        // classifier: gets the length of string
-                        () -> new TreeMap<>(),      // map factory: creates a TreeMap
+                        str -> str.length(),        // classifier: gets the length of the string
+                        () -> new TreeMap<>(),      // map factory: creates a TreeMap<Integer,List<String>>
                         toList()                    // downstream: collects strings into a List
                 ));
     }
 
-    public static Map<Integer,List<String>> groupByLengthUsingMethodRef(List<String> namesList) {
-        return namesList.stream()
+    public static Map<Integer,List<String>> groupByLengthUsingMethodRef(List<String> stringsList) {
+        return stringsList.stream()
                 .collect(groupingBy(
-                        String::length,     // classifier: gets the length of string
-                        TreeMap::new,       // map factory: creates a TreeMap
+                        String::length,     // classifier: gets the length of the string
+                        TreeMap::new,       // map factory: creates a TreeMap<Integer,List<String>>
                         toList()            // downstream: collects strings into a List
                 ));
     }

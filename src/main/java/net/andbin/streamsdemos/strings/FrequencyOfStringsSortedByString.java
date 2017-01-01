@@ -33,21 +33,21 @@ public class FrequencyOfStringsSortedByString {
         );
 
         /*
-         * We want to obtain a map of names frequency where:
-         *   - keys are the names
-         *   - values are counters of occurrencies
-         * We also want the map keys sorted in ascending order.
+         * We want to calculate the frequency (number of occurrencies) of
+         * each name, obtaining a map where:
+         *   - the key is the name
+         *   - the value is the frequency
+         * We also want the map keys (names) sorted in ascending order.
          *
          * e.g.
          *     Alexis   has frequency 3
          *     Hayley   has frequency 1
-         *     Javier   has frequency 4
          *         ...etc...
          *     Victoria has frequency 2
          *     Vikram   has frequency 1
          */
 
-        Map<String,Long> nameToFrequencyMap = mapNamesFrequencyUsingLambdaExpr(namesList);
+        Map<String,Long> nameToFrequencyMap = mapStringsFrequencyUsingLambdaExpr(namesList);
 
         System.out.printf("namesList = %s%n%n", namesList);
 
@@ -57,20 +57,20 @@ public class FrequencyOfStringsSortedByString {
     }
 
 
-    public static Map<String,Long> mapNamesFrequencyUsingLambdaExpr(List<String> namesList) {
-        return namesList.stream()
+    public static Map<String,Long> mapStringsFrequencyUsingLambdaExpr(List<String> stringsList) {
+        return stringsList.stream()
                 .collect(groupingBy(
                         str -> str,                 // classifier: the string itself
-                        () -> new TreeMap<>(),      // map factory: creates a TreeMap
+                        () -> new TreeMap<>(),      // map factory: creates a TreeMap<String,Long>
                         counting()                  // downstream: counts occurrencies
                 ));
     }
 
-    public static Map<String,Long> mapNamesFrequencyUsingMethodRef(List<String> namesList) {
-        return namesList.stream()
+    public static Map<String,Long> mapStringsFrequencyUsingMethodRef(List<String> stringsList) {
+        return stringsList.stream()
                 .collect(groupingBy(
                         str -> str,         // classifier: the string itself
-                        TreeMap::new,       // map factory: creates a TreeMap
+                        TreeMap::new,       // map factory: creates a TreeMap<String,Long>
                         counting()          // downstream: counts occurrencies
                 ));
     }

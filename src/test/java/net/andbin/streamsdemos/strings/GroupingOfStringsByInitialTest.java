@@ -40,7 +40,7 @@ public class GroupingOfStringsByInitialTest extends AbstractTestBase {
     }
 
     private interface SUT {
-        Map<String,List<String>> groupByInitial(List<String> namesList);
+        Map<String,List<String>> groupByInitial(List<String> stringsList);
     }
 
 
@@ -53,24 +53,24 @@ public class GroupingOfStringsByInitialTest extends AbstractTestBase {
 
     @Test
     public void givenEmptyListShouldReturnEmptyMap() {
-        Map<String,List<String>> initialToNamesMap = sut.groupByInitial(Collections.emptyList());
-        assertThat(initialToNamesMap).isEmpty();
+        Map<String,List<String>> initialToStringsMap = sut.groupByInitial(Collections.emptyList());
+        assertThat(initialToStringsMap).isEmpty();
     }
 
     @Test
     public void givenOneItemListShouldReturnOneEntryMap() {
-        Map<String,List<String>> initialToNamesMap = sut.groupByInitial(Arrays.asList("one"));
-        assertThat(initialToNamesMap).containsExactly(immutableEntry("o", Arrays.asList("one")));
+        Map<String,List<String>> initialToStringsMap = sut.groupByInitial(Arrays.asList("one"));
+        assertThat(initialToStringsMap).containsExactly(immutableEntry("o", Arrays.asList("one")));
     }
 
     @Test
     public void givenList1ShouldReturnFourEntriesMap() {
-        Map<String,List<String>> initialToNamesMap = sut.groupByInitial(LIST1);
-        assertThat(initialToNamesMap).isNotEmpty();
-        assertThat(initialToNamesMap.keySet()).containsExactly("f", "o", "s", "t");
-        assertThat(initialToNamesMap.get("f")).containsOnly("four", "five");
-        assertThat(initialToNamesMap.get("o")).containsOnly("one");
-        assertThat(initialToNamesMap.get("s")).containsOnly("six");
-        assertThat(initialToNamesMap.get("t")).containsOnly("two", "three");
+        Map<String,List<String>> initialToStringsMap = sut.groupByInitial(LIST1);
+        assertThat(initialToStringsMap).isNotEmpty();
+        assertThat(initialToStringsMap.keySet()).containsExactly("f", "o", "s", "t");
+        assertThat(initialToStringsMap.get("f")).containsOnly("four", "five");
+        assertThat(initialToStringsMap.get("o")).containsOnly("one");
+        assertThat(initialToStringsMap.get("s")).containsOnly("six");
+        assertThat(initialToStringsMap.get("t")).containsOnly("two", "three");
     }
 }

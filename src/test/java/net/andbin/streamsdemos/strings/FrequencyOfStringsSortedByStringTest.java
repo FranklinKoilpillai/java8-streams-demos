@@ -33,15 +33,15 @@ public class FrequencyOfStringsSortedByStringTest extends AbstractTestBase {
     @Factory
     public static Object[] instances() {
         return new Object[] {
-                new FrequencyOfStringsSortedByStringTest("mapNamesFrequencyUsingLambdaExpr",
-                        FrequencyOfStringsSortedByString::mapNamesFrequencyUsingLambdaExpr),
-                new FrequencyOfStringsSortedByStringTest("mapNamesFrequencyUsingMethodRef",
-                        FrequencyOfStringsSortedByString::mapNamesFrequencyUsingMethodRef),
+                new FrequencyOfStringsSortedByStringTest("mapStringsFrequencyUsingLambdaExpr",
+                        FrequencyOfStringsSortedByString::mapStringsFrequencyUsingLambdaExpr),
+                new FrequencyOfStringsSortedByStringTest("mapStringsFrequencyUsingMethodRef",
+                        FrequencyOfStringsSortedByString::mapStringsFrequencyUsingMethodRef),
         };
     }
 
     private interface SUT {
-        Map<String,Long> mapNamesFrequency(List<String> namesList);
+        Map<String,Long> mapStringsFrequency(List<String> stringsList);
     }
 
 
@@ -54,14 +54,14 @@ public class FrequencyOfStringsSortedByStringTest extends AbstractTestBase {
 
     @Test
     public void givenEmptyListShouldReturnEmptyMap() {
-        Map<String,Long> nameToFrequencyMap = sut.mapNamesFrequency(Collections.emptyList());
-        assertThat(nameToFrequencyMap).isEmpty();
+        Map<String,Long> stringToFrequencyMap = sut.mapStringsFrequency(Collections.emptyList());
+        assertThat(stringToFrequencyMap).isEmpty();
     }
 
     @Test
     public void givenList1ShouldReturnExpectedMap() {
-        Map<String,Long> nameToFrequencyMap = sut.mapNamesFrequency(LIST1);
-        assertThat(nameToFrequencyMap).containsExactly(
+        Map<String,Long> stringToFrequencyMap = sut.mapStringsFrequency(LIST1);
+        assertThat(stringToFrequencyMap).containsExactly(
                 Maps.immutableEntry("four", 4L),
                 Maps.immutableEntry("one", 1L),
                 Maps.immutableEntry("three", 3L),
