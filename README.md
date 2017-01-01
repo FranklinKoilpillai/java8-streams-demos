@@ -2,6 +2,10 @@
 
 The **Java 8 Streams Demos** is a [Maven](https://maven.apache.org "Apache Maven") based project exclusively developed by [Andrea Binello](http://www.andbin.net) (&ldquo;andbin&rdquo;) to provide a set of useful and enjoyable demos about the **Java 8 Stream API**, featuring also **lambda expressions** and **method references** (and some of the nice Java 5/Java 7 features: **generics**, **varargs**, **enums**, **diamond**, etc...).
 
+## Contents
+
+See the [**Index**](INDEX.md) for a brief list of all the demos. Or directly browse the [src/main/java/net/andbin/streamsdemos](src/main/java/net/andbin/streamsdemos) folder.
+
 ## License
 
 This project is licensed under the **MIT License**, a very *permissive* free software license. See the full text of the license:
