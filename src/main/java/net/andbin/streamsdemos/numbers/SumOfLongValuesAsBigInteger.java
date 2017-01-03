@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Andrea Binello ("andbin")
+ * Copyright (C) 2016-2017 Andrea Binello ("andbin")
  *
  * This file is part of the "Java 8 Streams Demos" project and is licensed
  * under the MIT License. See one of the license files included in the root
@@ -10,6 +10,7 @@ package net.andbin.streamsdemos.numbers;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class SumOfLongValuesAsBigInteger {
     public static void main(String[] args) {
@@ -32,29 +33,36 @@ public class SumOfLongValuesAsBigInteger {
         };
 
         /*
-         * We want to obtain the sum of all the values as BigInteger,
+         * We want to calculate the sum of all the values as BigInteger,
          * without any loss of magnitude or precision.
          *
          * e.g.
-         *     sum = 51617232508259224245
+         *     sum = 51,617,232,508,259,224,245
          */
 
         BigInteger sum = sumLongsUsingLambdaExpr(longValues);
 
-        System.out.printf("longValues = %s%n%n", Arrays.toString(longValues));
-        System.out.printf("sum = %d%n", sum);
+        System.out.println("longValues = [");
+
+        for (long value : longValues) {
+            System.out.printf(Locale.ENGLISH, "      %,26d%n", value);
+        }
+
+        System.out.printf("]%n%n");
+
+        System.out.printf(Locale.ENGLISH, "sum = %,26d%n", sum);
     }
 
 
     public static BigInteger sumLongsUsingLambdaExpr(long[] longValues) {
         return Arrays.stream(longValues)
-                .mapToObj(value -> BigInteger.valueOf(value))
-                .reduce(BigInteger.ZERO, (bi1, bi2) -> bi1.add(bi2));
+                .mapToObj(value -> BigInteger.valueOf(value))           // map: long to BigInteger
+                .reduce(BigInteger.ZERO, (bi1, bi2) -> bi1.add(bi2));   // reduction: addition of two BigInteger
     }
 
     public static BigInteger sumLongsUsingMethodRef(long[] longValues) {
         return Arrays.stream(longValues)
-                .mapToObj(BigInteger::valueOf)
-                .reduce(BigInteger.ZERO, BigInteger::add);
+                .mapToObj(BigInteger::valueOf)                  // map: long to BigInteger
+                .reduce(BigInteger.ZERO, BigInteger::add);      // reduction: addition of two BigInteger
     }
 }
