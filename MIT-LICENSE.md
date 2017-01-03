@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-### Copyright &copy; 2016 Andrea Binello (&ldquo;andbin&rdquo;)
+### Copyright &copy; 2016-2017 Andrea Binello (&ldquo;andbin&rdquo;)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
