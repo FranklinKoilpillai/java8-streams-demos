@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Andrea Binello ("andbin")
+ * Copyright (C) 2016-2017 Andrea Binello ("andbin")
  *
  * This file is part of the "Java 8 Streams Demos" project and is licensed
  * under the MIT License. See one of the license files included in the root
@@ -15,11 +15,13 @@ public class Point2D {
     private final double x;
     private final double y;
     private final Quadrant quadrant;
+    private final double originDistance;
 
     public Point2D(double x, double y) {
         this.x = x;
         this.y = y;
         quadrant = calculateQuadrant(x, y);
+        originDistance = calculateOriginDistance(x, y);
     }
 
     public double getX() {
@@ -32,6 +34,10 @@ public class Point2D {
 
     public Quadrant getQuadrant() {
         return quadrant;
+    }
+
+    public double getOriginDistance() {
+        return originDistance;
     }
 
     public boolean isInAQuadrant() {
@@ -82,6 +88,8 @@ public class Point2D {
     }
 
 
+    // Utility methods
+
     public static Quadrant calculateQuadrant(double x, double y) {
         if (y > 0) {
             if (x > 0) {
@@ -98,5 +106,9 @@ public class Point2D {
         }
 
         return null;  // in the origin or exactly on X or Y axis
+    }
+
+    public static double calculateOriginDistance(double x, double y) {
+        return Math.sqrt(x * x + y * y);
     }
 }

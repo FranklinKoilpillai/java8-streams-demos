@@ -12,6 +12,7 @@ See data model: [`Point2D.java`](src/main/java/net/andbin/streamsdemos/points/da
 And see also: [`PointsDataChart.java`](src/main/java/net/andbin/streamsdemos/points/tool/PointsDataChart.java) JavaFX chart app
 
 * [`CountOfPointsByQuadrant.java`](src/main/java/net/andbin/streamsdemos/points/CountOfPointsByQuadrant.java) &ndash; Given a `List<Point2D>`, counts the points in each quadrant.
+* [`MaxOriginDistanceByQuadrant.java`](src/main/java/net/andbin/streamsdemos/points/MaxOriginDistanceByQuadrant.java) &ndash; Given a `List<Point2D>`, calculates the maximum distance of a point from the origin for each quadrant.
 
 ## Demos using strings
 
