@@ -8,7 +8,10 @@
 
 ## Demos using cartesian points
 
-(see data model: [`Point2D.java`](src/main/java/net/andbin/streamsdemos/points/datamodel/Point2D.java) / [`Quadrant.java`](src/main/java/net/andbin/streamsdemos/points/datamodel/Quadrant.java))
+See data model: [`Point2D.java`](src/main/java/net/andbin/streamsdemos/points/datamodel/Point2D.java) / [`PointsData.java`](src/main/java/net/andbin/streamsdemos/points/datamodel/PointsData.java) / [`Quadrant.java`](src/main/java/net/andbin/streamsdemos/points/datamodel/Quadrant.java)<br>
+And see also: [`PointsDataChart.java`](src/main/java/net/andbin/streamsdemos/points/tool/PointsDataChart.java) JavaFX chart app
+
+* [`CountOfPointsByQuadrant.java`](src/main/java/net/andbin/streamsdemos/points/CountOfPointsByQuadrant.java) &ndash; Given a `List<Point2D>`, counts the points in each quadrant.
 
 ## Demos using strings
 
