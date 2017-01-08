@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Andrea Binello ("andbin")
+ * Copyright (C) 2016-2017 Andrea Binello ("andbin")
  *
  * This file is part of the "Java 8 Streams Demos" project and is licensed
  * under the MIT License. See one of the license files included in the root
@@ -48,17 +48,17 @@ public class PartitionOfEvenOddIntValues {
 
     public static Map<Boolean,List<Integer>> partitionEvenOddUsingLambdaExpr(int[] intValues) {
         return Arrays.stream(intValues)
-                .mapToObj(value -> value)
+                .boxed()                    // boxes int to Integer
                 .collect(partitioningBy(
-                        value -> NumberUtils.isEven(value)
+                        value -> NumberUtils.isEven(value)      // predicate: true if value is even
                 ));
     }
 
     public static Map<Boolean,List<Integer>> partitionEvenOddUsingMethodRef(int[] intValues) {
         return Arrays.stream(intValues)
-                .mapToObj(value -> value)
+                .boxed()                    // boxes int to Integer
                 .collect(partitioningBy(
-                        NumberUtils::isEven
+                        NumberUtils::isEven         // predicate: true if value is even
                 ));
     }
 }
