@@ -68,8 +68,8 @@ public class MaxOriginDistanceByQuadrant {
                         point -> point.getQuadrant(),       // classifier: gets the Quadrant
                         () -> Quadrant.newEnumMap(),        // map factory: creates an EnumMap<Quadrant,Optional<Double>>
                         mapping(                            // downstream: a "mapping" Collector
-                                point -> point.getOriginDistance(),     // mapper: maps from point to origin distance
-                                maxBy(naturalOrder())                   // downstream: max by origin distance value
+                                (Point2D point) -> point.getOriginDistance(),   // mapper: maps from point to origin distance
+                                maxBy(naturalOrder())                           // downstream: max by origin distance value
                         )
                 ));
     }
