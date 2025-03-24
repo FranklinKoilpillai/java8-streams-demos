@@ -27,27 +27,27 @@ public class PointsDataChart extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Points Data Chart");
 
-        NumberAxis xAxis = new NumberAxis(-13, +13, 1);
-        xAxis.setLabel("X");
+     //   NumberAxis xAxis = new NumberAxis(-13, +13, 1);
+      //  xAxis.setLabel("X");
 
-        NumberAxis yAxis = new NumberAxis(-13, +13, 1);
-        yAxis.setLabel("Y");
+     //   NumberAxis yAxis = new NumberAxis(-13, +13, 1);
+     //   yAxis.setLabel("Y");
 
-        XYChart.Series<Number,Number> series = new XYChart.Series<>();
-        series.setName("Samples");
+     //   XYChart.Series<Number,Number> series = new XYChart.Series<>();
+     //   series.setName("Samples");
 
-        for (Point2D point : PointsData.getSamples()) {
-            series.getData().add(new XYChart.Data<>(point.getX(), point.getY()));
-        }
+     //   for (Point2D point : PointsData.getSamples()) {
+     //       series.getData().add(new XYChart.Data<>(point.getX(), point.getY()));
+    //    }
 
-        ScatterChart<Number,Number> chart = new ScatterChart<>(xAxis, yAxis);
-        chart.setId("points-chart");
-        chart.getData().add(series);
+     //   ScatterChart<Number,Number> chart = new ScatterChart<>(xAxis, yAxis);
+    //    chart.setId("points-chart");
+     //   chart.getData().add(series);
 
-        Scene scene = new Scene(chart, 600, 600);
-        scene.getStylesheets().add(getClass().getResource("points-chart.css").toExternalForm());
+     //   Scene scene = new Scene(chart, 600, 600);
+     //   scene.getStylesheets().add(getClass().getResource("points-chart.css").toExternalForm());
 
-        primaryStage.setScene(scene);
+    //    primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
