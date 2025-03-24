@@ -6,7 +6,7 @@
  * of the project for the full text of the license.
  */
 
-package net.andbin.streamsdemos.points.tool;
+//package net.andbin.streamsdemos.points.tool;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
